@@ -9,12 +9,11 @@ modified.
 
 ```
 sudo apt-get install libboost1.48-all-dev
-mkdir -p uhd/host/build
-cd uhd/host/build
+mkdir -p host/build
+cd host/build
 cmake ..
 make
 cpack
-./build.sh
 ```
 
 UHD is the free & open-source software driver and API for the Universal Software
