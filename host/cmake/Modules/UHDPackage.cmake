@@ -165,7 +165,11 @@ SET(CPACK_COMPONENTS_ALL libraries headers utilities examples manual doxygen rea
 ########################################################################
 # Setup CPack Debian
 ########################################################################
-SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libboost1.48-all-dev")
+IF(${LSB_ID} EQUAL "Ubuntu" AND ${LSB_RELEASE} EQUAL "12.04")
+    SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libboost1.48-all-dev")
+ELSE()
+    SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libboost-all-dev")
+ENDIF()
 SET(CPACK_DEBIAN_PACKAGE_RECOMMENDS "python, python-tk")
 FOREACH(filename preinst postinst prerm postrm)
     LIST(APPEND CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA ${CMAKE_BINARY_DIR}/debian/${filename})
