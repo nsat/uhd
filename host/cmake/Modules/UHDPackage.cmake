@@ -165,7 +165,7 @@ SET(CPACK_COMPONENTS_ALL libraries headers utilities examples manual doxygen rea
 ########################################################################
 # Setup CPack Debian
 ########################################################################
-IF(${LSB_ID} EQUAL "Ubuntu" AND ${LSB_RELEASE} EQUAL "12.04")
+IF(${LSB_ID} STREQUAL "Ubuntu" AND ${LSB_RELEASE} STREQUAL "12.04")
     SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libboost1.48-all-dev")
 ELSE()
     SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libboost-all-dev")
